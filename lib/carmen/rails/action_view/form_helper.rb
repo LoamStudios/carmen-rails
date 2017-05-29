@@ -203,8 +203,8 @@ module ActionView
           def to_region_select_tag(parent_region, options = {}, html_options = {})
             html_options = html_options.stringify_keys
             add_default_name_and_id(html_options)
-            options[:include_blank] ||= true unless options[:prompt] || select_not_required?(html_options)
-
+            options[:include_blank] ||= true unless options[:prompt]
+            
             value = options[:selected] ? options[:selected] : value(object)
             priority_regions = options[:priority] || []
             opts = add_options(region_options_for_select(parent_region.subregions, value, 
